@@ -14,15 +14,15 @@ public class MenuPanel extends JPanel {
     }
     private void addButtons() {
         add(Box.createVerticalGlue());
-        JButton startButton = JButtonFactory.createButton("START", e -> {
+        JButton startButton = JButtonFactory.createMenuButton("START", e -> {
                 CardLayout cl = (CardLayout) mainPanel.getLayout();
                 cl.show(mainPanel, "Game");
         });
-        JButton settingsButton = JButtonFactory.createButton("SETTINGS", e -> {
+        JButton settingsButton = JButtonFactory.createMenuButton("SETTINGS", e -> {
                 CardLayout cl = (CardLayout) mainPanel.getLayout();
                 cl.show(mainPanel, "Settings");
         });
-        JButton endButton = JButtonFactory.createButton("END", e -> {
+        JButton endButton = JButtonFactory.createMenuButton("END", e -> {
                 System.exit(0);
         });
         settingsButton.setAlignmentX(Component.CENTER_ALIGNMENT);
@@ -36,4 +36,5 @@ public class MenuPanel extends JPanel {
         add(endButton);
         add(Box.createVerticalGlue());
     }
+
 }
