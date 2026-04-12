@@ -1,11 +1,16 @@
 package ui;
 
+import ui.rowsSettings.KeyButtonRow;
+import ui.rowsSettings.SettingRowPanel;
+
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.KeyEvent;
 
 public class SettingsPanel extends JPanel {
     //can switch panels with card layout, so we need reference to main panel
     private JPanel mainPanel;
+
 
     private JPanel contentPane;
     private JScrollPane scrollPane;
@@ -17,15 +22,22 @@ public class SettingsPanel extends JPanel {
     private JButton buttonReset;
     private JButton buttonApply;
 
-    private JPanel container;
+    private JPanel container; //panel in scrollPane
 
     public SettingsPanel(JPanel mainPanel) {
         this.setLayout(new BorderLayout());
         this.add(contentPane, BorderLayout.CENTER);
 
-        for (int i = 1; i <= 20; i++) {
-            addRowPanel("Row " + i);
-        }
+
+        container.add(new KeyButtonRow("Move Up", KeyEvent.VK_W));
+        container.add(Box.createVerticalGlue());
+
+        container.revalidate();
+        container.repaint();
+
+        //text field for names.
+        //button for key.
+        //checkbox for color mode.
     }
 
     private void createUIComponents() {
@@ -48,25 +60,5 @@ public class SettingsPanel extends JPanel {
 
         });
 
-    }
-
-    public void addRowPanel(String text) {
-        JPanel row = new JPanel(new BorderLayout());
-        row.setPreferredSize(new Dimension(0, 50));
-        row.setMaximumSize(new Dimension(Integer.MAX_VALUE, 50));
-        row.setBorder(BorderFactory.createEtchedBorder());
-
-        row.add(new JLabel(text, SwingConstants.CENTER), BorderLayout.CENTER);
-
-        Component[] components = container.getComponents();
-        if (components.length > 0 && components[components.length - 1] instanceof Box.Filler) {
-            container.remove(components.length - 1);
-        }
-
-        container.add(row);
-        container.add(Box.createVerticalGlue());
-
-        container.revalidate();
-        container.repaint();
     }
 }
