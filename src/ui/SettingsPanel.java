@@ -32,7 +32,16 @@ public class SettingsPanel extends JPanel {
         this.setLayout(new BorderLayout());
         this.add(contentPane, BorderLayout.CENTER);
         this.mainPanel = mainPanel;
+        addButtonsToContainer();
 
+        //container.add(Box.createVerticalGlue());
+
+
+        container.revalidate();
+        container.repaint();
+    }
+
+    private void addButtonsToContainer() {
         Settings.PlayerSettings player1Settings = ConfigManager.getSettings().getPlayer1();
         Settings.PlayerSettings player2Settings = ConfigManager.getSettings().getPlayer2();
 
@@ -49,11 +58,6 @@ public class SettingsPanel extends JPanel {
         container.add(new KeyButtonRow("Player2 Turn Left", player2Settings.getTurnLeftKey()));
         container.add(new KeyButtonRow("Player2 Turn Right", player2Settings.getTurnRightKey()));
         container.add(new KeyButtonRow("Player2 Fire", player2Settings.getFireKey()));
-        //container.add(Box.createVerticalGlue());
-
-
-        container.revalidate();
-        container.repaint();
     }
 
     private void createUIComponents() {
@@ -72,7 +76,10 @@ public class SettingsPanel extends JPanel {
 
         buttonReset = JButtonFactory.createSettingsButton("Reset", e -> {
             ConfigManager.resetToDefaultSettings("defaultSettings.json", "settings.json");
+            container.removeAll();
+            addButtonsToContainer();
             this.repaint();
+            this.revalidate();
             this.requestFocusInWindow();
         });
         buttonApply = JButtonFactory.createSettingsButton("Apply", e -> {
@@ -90,6 +97,12 @@ public class SettingsPanel extends JPanel {
         buttonsPanel.add(buttonReset);
         buttonsPanel.add(buttonApply);
         contentPane.add(buttonsPanel, BorderLayout.SOUTH);
+
+    }
+
+    @Override
+    public void repaint(Rectangle r) {
+        super.repaint(r);
 
     }
 }
