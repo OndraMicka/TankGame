@@ -38,4 +38,5 @@ public class ConfigManager {
     public static Settings getSettings() {
         return settings;
     }
+
 }
