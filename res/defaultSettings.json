@@ -1,0 +1,18 @@
+{
+  "player1": {
+    "moveForwardKey": 87,
+    "moveBackKey": 83,
+    "turnLeftKey": 65,
+    "turnRightKey": 68,
+    "fireKey": 32,
+    "playerName": "Player 1"
+  },
+  "player2": {
+    "moveForwardKey": 38,
+    "moveBackKey": 40,
+    "turnLeftKey": 37,
+    "turnRightKey": 39,
+    "fireKey": 10,
+    "playerName": "Player 2"
+  }
+}

@@ -29,8 +29,10 @@ public class SettingsPanel extends JPanel {
         this.add(contentPane, BorderLayout.CENTER);
 
 
-        container.add(new KeyButtonRow("Move Up", KeyEvent.VK_W));
-        container.add(Box.createVerticalGlue());
+        for (int i = 0; i <20 ; i++) {
+            container.add(new KeyButtonRow("Move Up", KeyEvent.VK_W));
+            container.add(Box.createVerticalGlue());
+        }
 
         container.revalidate();
         container.repaint();

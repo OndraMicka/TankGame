@@ -7,7 +7,7 @@ public class MenuPanel extends JPanel {
     private final JPanel mainPanel;
     public MenuPanel(JPanel mainPanel) {
         this.mainPanel = mainPanel;
-        setBackground(new Color(67, 67, 67));
+        setBackground(new Color(0, 0, 0));
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 
         addButtons();

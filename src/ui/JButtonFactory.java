@@ -15,7 +15,7 @@ public class JButtonFactory {
         button.setOpaque(true);
 
         button.setForeground(new Color(189, 189, 189));
-        button.setBackground(new Color(0, 0, 0));
+        button.setBackground(new Color(42, 66, 31));
         button.setFont(new Font("Arial", Font.BOLD, 30));
 
         button.setPreferredSize(new java.awt.Dimension(100, 50));

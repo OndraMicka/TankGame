@@ -1,4 +1,4 @@
-package ui.core;
+package core;
 
 
 public class Settings {
@@ -13,7 +13,7 @@ public class Settings {
         return player2;
     }
 
-    private static class PlayerSettings {
+    public class PlayerSettings {
         private int moveForwardKey;
         private int moveBackKey;
         private int turnLeftKey;
@@ -60,9 +60,7 @@ public class Settings {
             return fireKey;
         }
 
-        public void setFireKey(int fireKey) {
-            this.fireKey = fireKey;
-        }
+        public void setFireKey(int fireKey) {this.fireKey = fireKey;}
 
         public String getPlayerName() {
             return playerName;
