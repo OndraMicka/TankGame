@@ -2,14 +2,13 @@ package ui;
 
 import core.ConfigManager;
 import core.Settings;
+import ui.rowsSettings.CheckBoxRow;
 import ui.rowsSettings.KeyButtonRow;
-import ui.rowsSettings.SettingRowPanel;
 import ui.rowsSettings.TextFieldRow;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.KeyEvent;
-import java.util.concurrent.atomic.AtomicReference;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 public class SettingsPanel extends JPanel {
     //can switch panels with card layout, so we need reference to main panel
@@ -55,10 +54,6 @@ public class SettingsPanel extends JPanel {
 
         container.revalidate();
         container.repaint();
-
-        //text field for names.
-        //button for key.
-        //checkbox for color mode.
     }
 
     private void createUIComponents() {
@@ -75,17 +70,17 @@ public class SettingsPanel extends JPanel {
 
         buttonsPanel = new JPanel();
 
-         buttonReset = JButtonFactory.createSettingsButton("Reset", e -> {
-             ConfigManager.resetToDefaultSettings("defaultSettings.json","settings.json");
-             this.repaint();
-             this.requestFocusInWindow();
+        buttonReset = JButtonFactory.createSettingsButton("Reset", e -> {
+            ConfigManager.resetToDefaultSettings("defaultSettings.json", "settings.json");
+            this.repaint();
+            this.requestFocusInWindow();
         });
         buttonApply = JButtonFactory.createSettingsButton("Apply", e -> {
             ConfigManager.saveGameSettingsResources("settings.json");
             this.repaint();
             this.requestFocusInWindow();
         });
-        buttonBack= JButtonFactory.createSettingsButton("Back", e -> {
+        buttonBack = JButtonFactory.createSettingsButton("Back", e -> {
             CardLayout cardLayout = (CardLayout) mainPanel.getLayout();
             cardLayout.show(mainPanel, "Menu");
             this.requestFocusInWindow();

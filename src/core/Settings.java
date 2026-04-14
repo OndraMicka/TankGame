@@ -2,7 +2,6 @@ package core;
 
 
 import java.util.concurrent.atomic.AtomicInteger;
-import java.util.concurrent.atomic.AtomicReference;
 
 public class Settings {
     private PlayerSettings player1 = new PlayerSettings();
@@ -63,7 +62,9 @@ public class Settings {
             return fireKey;
         }
 
-        public void setFireKey(AtomicInteger fireKey) {this.fireKey = fireKey;}
+        public void setFireKey(AtomicInteger fireKey) {
+            this.fireKey = fireKey;
+        }
 
         public MyReferenceString getPlayerName() {
             return playerName;
@@ -73,7 +74,6 @@ public class Settings {
             this.playerName = playerName;
         }
     }
-
 
 
 }
