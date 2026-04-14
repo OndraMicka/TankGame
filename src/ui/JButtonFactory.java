@@ -10,7 +10,7 @@ public class JButtonFactory {
         JButton button = new JButton(text);
         button.addActionListener(action);
         button.setFocusPainted(false);
-        button.setBorderPainted(false);
+        button.setBorderPainted(false);;
         button.setContentAreaFilled(false);
         button.setOpaque(true);
 
@@ -24,7 +24,7 @@ public class JButtonFactory {
     public static JButton createSettingsButton(String text,ActionListener action) {
         JButton button = new JButton(text);
         button.addActionListener(action);
-        button.setFocusPainted(false);
+        //button.setFocusPainted(false);
         button.setBorderPainted(false);
         button.setContentAreaFilled(false);
         button.setOpaque(true);

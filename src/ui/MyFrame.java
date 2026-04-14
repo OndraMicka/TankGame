@@ -5,6 +5,7 @@ import java.awt.*;
 
 public class MyFrame extends JFrame {
     private JPanel panel;
+    private CardLayout cardLayout;
 
     public MyFrame() {
         setTitle("Game");
@@ -15,7 +16,8 @@ public class MyFrame extends JFrame {
 
         panel = new JPanel();
         panel.setBackground(Color.GREEN);
-        panel.setLayout(new CardLayout());
+        cardLayout = new CardLayout();
+        panel.setLayout(cardLayout);
         add(panel);
 
         addPanels();
@@ -33,7 +35,15 @@ public class MyFrame extends JFrame {
         GamePanel gamePanel = new GamePanel(panel);
         panel.add(gamePanel, "Game");
 
-        CardLayout cl = (CardLayout) panel.getLayout();
-        cl.show(panel, "Menu");
+        cardLayout = (CardLayout) panel.getLayout();
+        cardLayout.show(panel, "Menu");
+    }
+
+    public CardLayout getCardLayout() {
+        return cardLayout;
+    }
+
+    public JPanel getPanel() {
+        return panel;
     }
 }

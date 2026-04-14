@@ -24,12 +24,11 @@ public class ConfigManager {
     }
     public static void saveGameSettingsResources(String resourcePath) {
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        try(BufferedWriter bw = new BufferedWriter(new FileWriter(resourcePath))) {
-            gson.toJson(settings, bw);
+        try(BufferedWriter bw = new BufferedWriter(new FileWriter("res/"+resourcePath))) {
+            gson.toJson(settings,bw);
         }catch (IOException e){
             throw new RuntimeException("Chyba při načítání JSON: " + e.getMessage());
         }
-        //TODO: fix
     }
     public static void resetToDefaultSettings(String defaultSettingsPath, String settingsPath) {
         loadGameSettingsResources(defaultSettingsPath);

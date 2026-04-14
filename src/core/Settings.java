@@ -1,6 +1,8 @@
 package core;
 
 
+import java.util.concurrent.atomic.AtomicInteger;
+
 public class Settings {
     private PlayerSettings player1 = new PlayerSettings();
     private PlayerSettings player2 = new PlayerSettings();
@@ -14,53 +16,53 @@ public class Settings {
     }
 
     public class PlayerSettings {
-        private int moveForwardKey;
-        private int moveBackKey;
-        private int turnLeftKey;
-        private int turnRightKey;
-        private int fireKey;
+        private AtomicInteger moveForwardKey;
+        private AtomicInteger moveBackKey;
+        private AtomicInteger turnLeftKey;
+        private AtomicInteger turnRightKey;
+        private AtomicInteger fireKey;
         private String playerName;
 
         public PlayerSettings() {
         }
 
-        public int getMoveForwardKey() {
+        public AtomicInteger getMoveForwardKey() {
             return moveForwardKey;
         }
 
-        public void setMoveForwardKey(int moveForwardKey) {
+        public void setMoveForwardKey(AtomicInteger moveForwardKey) {
             this.moveForwardKey = moveForwardKey;
         }
 
-        public int getMoveBackKey() {
+        public AtomicInteger getMoveBackKey() {
             return moveBackKey;
         }
 
-        public void setMoveBackKey(int moveBackKey) {
+        public void setMoveBackKey(AtomicInteger moveBackKey) {
             this.moveBackKey = moveBackKey;
         }
 
-        public int getTurnLeftKey() {
+        public AtomicInteger getTurnLeftKey() {
             return turnLeftKey;
         }
 
-        public void setTurnLeftKey(int turnLeftKey) {
+        public void setTurnLeftKey(AtomicInteger turnLeftKey) {
             this.turnLeftKey = turnLeftKey;
         }
 
-        public int getTurnRightKey() {
+        public AtomicInteger getTurnRightKey() {
             return turnRightKey;
         }
 
-        public void setTurnRightKey(int turnRightKey) {
+        public void setTurnRightKey(AtomicInteger turnRightKey) {
             this.turnRightKey = turnRightKey;
         }
 
-        public int getFireKey() {
+        public AtomicInteger getFireKey() {
             return fireKey;
         }
 
-        public void setFireKey(int fireKey) {this.fireKey = fireKey;}
+        public void setFireKey(AtomicInteger fireKey) {this.fireKey = fireKey;}
 
         public String getPlayerName() {
             return playerName;

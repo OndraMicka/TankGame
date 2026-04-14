@@ -1,5 +1,7 @@
 package ui;
 
+import core.ConfigManager;
+import core.Settings;
 import ui.rowsSettings.KeyButtonRow;
 import ui.rowsSettings.SettingRowPanel;
 
@@ -27,12 +29,13 @@ public class SettingsPanel extends JPanel {
     public SettingsPanel(JPanel mainPanel) {
         this.setLayout(new BorderLayout());
         this.add(contentPane, BorderLayout.CENTER);
+        this.mainPanel = mainPanel;
 
+        Settings.PlayerSettings player1Settings = ConfigManager.getSettings().getPlayer1();
+        container.add(new KeyButtonRow("Move Forward", player1Settings.getMoveForwardKey()));
+        container.add(new KeyButtonRow("Move Backward", player1Settings.getMoveBackKey()));
+        //container.add(Box.createVerticalGlue());
 
-        for (int i = 0; i <20 ; i++) {
-            container.add(new KeyButtonRow("Move Up", KeyEvent.VK_W));
-            container.add(Box.createVerticalGlue());
-        }
 
         container.revalidate();
         container.repaint();
@@ -51,15 +54,20 @@ public class SettingsPanel extends JPanel {
         scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
         scrollPane.getVerticalScrollBar().setUnitIncrement(16);
 
-        //TODO: add event to buttons
          buttonReset = JButtonFactory.createSettingsButton("Reset", e -> {
-
+             ConfigManager.resetToDefaultSettings("defaultSettings.json","settings.json");
+             this.repaint();
+             this.requestFocusInWindow();
         });
         buttonApply = JButtonFactory.createSettingsButton("Apply", e -> {
-
+            ConfigManager.saveGameSettingsResources("settings.json");
+            this.repaint();
+            this.requestFocusInWindow();
         });
         buttonBack= JButtonFactory.createSettingsButton("Back", e -> {
-
+            CardLayout cardLayout = (CardLayout) mainPanel.getLayout();
+            cardLayout.show(mainPanel, "Menu");
+            this.requestFocusInWindow();
         });
 
     }
