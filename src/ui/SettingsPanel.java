@@ -28,7 +28,7 @@ public class SettingsPanel extends JPanel {
     private JPanel container; //panel in scrollPane
 
     public SettingsPanel(JPanel mainPanel) {
-        createUIComponents();
+        //createUIComponents();
         this.setLayout(new BorderLayout());
         this.add(contentPane, BorderLayout.CENTER);
         this.mainPanel = mainPanel;
