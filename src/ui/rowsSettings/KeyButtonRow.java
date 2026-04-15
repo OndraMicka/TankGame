@@ -17,6 +17,10 @@ public class KeyButtonRow extends SettingRowPanel {
 
         JButton keyButton = new JButton(KeyEvent.getKeyText(valueReference.get()));
         this.add(keyButton, BorderLayout.EAST);
+        keyButton.setForeground(new Color(189, 189, 189));
+        keyButton.setBorder(BorderFactory.createLineBorder(new Color(0,0,0)));
+        keyButton.setBackground(new Color(42, 66, 31));
+        keyButton.setPreferredSize(new Dimension(50, 50));
 
         keyButton.addActionListener(e -> {
             keyButton.setText("...");

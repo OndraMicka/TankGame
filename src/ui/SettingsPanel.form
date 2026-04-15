@@ -14,7 +14,7 @@
         <margin top="0" left="0" bottom="0" right="0"/>
         <constraints border-constraint="East"/>
         <properties>
-          <background color="-13619152"/>
+          <background color="-16777216"/>
         </properties>
         <border type="none"/>
         <children>
@@ -34,7 +34,7 @@
         <margin top="0" left="0" bottom="0" right="0"/>
         <constraints border-constraint="West"/>
         <properties>
-          <background color="-13619152"/>
+          <background color="-16777216"/>
         </properties>
         <border type="none"/>
         <children>
@@ -66,7 +66,7 @@
           <grid id="e3f8c" binding="buttonsPanel" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
             <constraints border-constraint="South"/>
             <properties>
-              <background color="-12237499"/>
+              <background color="-14869219"/>
             </properties>
             <border type="none"/>
             <children>

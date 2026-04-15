@@ -4,6 +4,7 @@ import core.ConfigManager;
 import core.Settings;
 import ui.rowsSettings.CheckBoxRow;
 import ui.rowsSettings.KeyButtonRow;
+import ui.rowsSettings.LabelRow;
 import ui.rowsSettings.TextFieldRow;
 
 import javax.swing.*;
@@ -28,7 +29,6 @@ public class SettingsPanel extends JPanel {
     private JPanel container; //panel in scrollPane
 
     public SettingsPanel(JPanel mainPanel) {
-        //createUIComponents();
         this.setLayout(new BorderLayout());
         this.add(contentPane, BorderLayout.CENTER);
         this.mainPanel = mainPanel;
@@ -45,19 +45,21 @@ public class SettingsPanel extends JPanel {
         Settings.PlayerSettings player1Settings = ConfigManager.getSettings().getPlayer1();
         Settings.PlayerSettings player2Settings = ConfigManager.getSettings().getPlayer2();
 
-        container.add(new TextFieldRow("Player1 Name", player1Settings.getPlayerName()));
-        container.add(new KeyButtonRow("Player1 Move Forward", player1Settings.getMoveForwardKey()));
-        container.add(new KeyButtonRow("Player1 Move Backward", player1Settings.getMoveBackKey()));
-        container.add(new KeyButtonRow("Player1 Turn Left", player1Settings.getTurnLeftKey()));
-        container.add(new KeyButtonRow("Player1 Turn Right", player1Settings.getTurnRightKey()));
-        container.add(new KeyButtonRow("Player1 Fire", player1Settings.getFireKey()));
+        container.add(new LabelRow("Player 1 Settings"));
+        container.add(new TextFieldRow("Name", player1Settings.getPlayerName()));
+        container.add(new KeyButtonRow("Move Forward", player1Settings.getMoveForwardKey()));
+        container.add(new KeyButtonRow("Move Backward", player1Settings.getMoveBackKey()));
+        container.add(new KeyButtonRow("Turn Left", player1Settings.getTurnLeftKey()));
+        container.add(new KeyButtonRow("Turn Right", player1Settings.getTurnRightKey()));
+        container.add(new KeyButtonRow("Fire", player1Settings.getFireKey()));
 
-        container.add(new TextFieldRow("Player2 Name", player2Settings.getPlayerName()));
-        container.add(new KeyButtonRow("Player2 Move Forward", player2Settings.getMoveForwardKey()));
-        container.add(new KeyButtonRow("Player2 Move Backward", player2Settings.getMoveBackKey()));
-        container.add(new KeyButtonRow("Player2 Turn Left", player2Settings.getTurnLeftKey()));
-        container.add(new KeyButtonRow("Player2 Turn Right", player2Settings.getTurnRightKey()));
-        container.add(new KeyButtonRow("Player2 Fire", player2Settings.getFireKey()));
+        container.add(new LabelRow("Player 2 Settings"));
+        container.add(new TextFieldRow("Name", player2Settings.getPlayerName()));
+        container.add(new KeyButtonRow("Move Forward", player2Settings.getMoveForwardKey()));
+        container.add(new KeyButtonRow("Move Backward", player2Settings.getMoveBackKey()));
+        container.add(new KeyButtonRow("Turn Left", player2Settings.getTurnLeftKey()));
+        container.add(new KeyButtonRow("Turn Right", player2Settings.getTurnRightKey()));
+        container.add(new KeyButtonRow("Fire", player2Settings.getFireKey()));
     }
 
     private void createUIComponents() {
@@ -65,9 +67,10 @@ public class SettingsPanel extends JPanel {
         container.setLayout(new BoxLayout(container, BoxLayout.Y_AXIS));
 
         scrollPane = new JScrollPane(container);
-        scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+        scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_NEVER);
         scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
-        scrollPane.getVerticalScrollBar().setUnitIncrement(16);
+        scrollPane.getVerticalScrollBar().setUnitIncrement(10);
+        scrollPane.setBorder(BorderFactory.createEmptyBorder());
 
         contentPane = new JPanel(new BorderLayout());
         contentPane.add(scrollPane, BorderLayout.CENTER);

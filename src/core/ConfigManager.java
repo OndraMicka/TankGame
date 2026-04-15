@@ -35,6 +35,14 @@ public class ConfigManager {
         }catch (IOException e){
             throw new RuntimeException("Chyba při načítání JSON: " + e.getMessage());
         }
+
+//        try (InputStream is = Settings.class.getClassLoader().getResourceAsStream(resourcePath)) {
+//            OutputStream os = new FileOutputStream(resourcePath);
+//
+//
+//        } catch (Exception e) {
+//
+//        }
     }
     public static void resetToDefaultSettings(String defaultSettingsPath, String settingsPath) {
         loadGameSettingsResources(defaultSettingsPath);
