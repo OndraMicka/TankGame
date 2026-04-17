@@ -1,0 +1,48 @@
+package blocksOnMap;
+
+import java.awt.*;
+
+public abstract class Block {
+    private int x;
+    private int y;
+    private boolean passable;
+    private Image image;
+
+
+    public Block(int x, int y) {
+        this.x = x;
+        this.y = y;
+    }
+
+    public int getX() {
+        return x;
+    }
+
+    public void setX(int x) {
+        this.x = x;
+    }
+
+    public int getY() {
+        return y;
+    }
+
+    public void setY(int y) {
+        this.y = y;
+    }
+
+    public boolean isPassable() {
+        return passable;
+    }
+
+    public void setPassable(boolean passable) {
+        this.passable = passable;
+    }
+
+    public Image getImage() {
+        return image;
+    }
+
+    public void setImage(Image image) {
+        this.image = image;
+    }
+}
