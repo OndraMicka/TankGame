@@ -38,9 +38,7 @@ public abstract class Block {
         this.passable = passable;
     }
 
-    public Image getImage() {
-        return image;
-    }
+    public Image getImage() {return image;}
 
     public void setImage(Image image) {
         this.image = image;
