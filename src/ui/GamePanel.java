@@ -1,10 +1,20 @@
 package ui;
 
+import core.AllMaps;
+import core.MapLayoutPanel;
+
 import javax.swing.*;
+import java.awt.*;
 
 public class GamePanel extends JPanel {
+    private MapLayoutPanel mapLayoutPanel;
+
+    //TODO: add panel for picking map and player health
     public GamePanel(JPanel mainPanel) {
-        setLayout(null);
-        setBackground(new java.awt.Color(56, 255, 0));
+        setBackground(Color.GREEN);
+        setLayout(new BorderLayout());
+
+        mapLayoutPanel = new MapLayoutPanel(new AllMaps().getMap(0));
+        add(mapLayoutPanel);
     }
 }

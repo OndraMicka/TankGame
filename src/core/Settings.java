@@ -4,6 +4,7 @@ package core;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class Settings {
+    //TODO: add settings for player to chose map, int index
     private PlayerSettings player1 = new PlayerSettings();
     private PlayerSettings player2 = new PlayerSettings();
 

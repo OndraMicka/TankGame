@@ -1,12 +1,10 @@
 package blocksOnMap;
 
-import java.awt.*;
 
 public abstract class Block {
     private int x;
     private int y;
     private boolean passable;
-    private Image image;
 
 
     public Block(int x, int y) {
@@ -36,13 +34,5 @@ public abstract class Block {
 
     public void setPassable(boolean passable) {
         this.passable = passable;
-    }
-
-    public Image getImage() {
-        return image;
-    }
-
-    public void setImage(Image image) {
-        this.image = image;
     }
 }
