@@ -13,9 +13,11 @@ import java.io.IOException;
 public class GameMap {
     private int width, height;
     private final Block[][] mapArray;
+    private final String name;
 
-    public GameMap(String filePath) {
+    public GameMap(String name,String filePath) {
         BufferedImage img;
+        this.name = name;
         try {
             img = ImageIO.read(new File(filePath));
             setHeight(img.getHeight());
@@ -61,5 +63,8 @@ public class GameMap {
         return mapArray;
     }
 
+    public String getName() {
+        return name;
+    }
 }
 

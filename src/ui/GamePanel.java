@@ -1,20 +1,30 @@
 package ui;
 
-import core.AllMaps;
+import core.Game;
+import core.GameMap;
 import core.MapLayoutPanel;
 
 import javax.swing.*;
 import java.awt.*;
 
 public class GamePanel extends JPanel {
-    private MapLayoutPanel mapLayoutPanel;
+    private JPanel mainPanel;
 
-    //TODO: add panel for picking map and player health
+    private Game game;
+    private MapLayoutPanel mapPanel;
     public GamePanel(JPanel mainPanel) {
-        setBackground(Color.GREEN);
-        setLayout(new BorderLayout());
+        this.mainPanel = mainPanel;
 
-        mapLayoutPanel = new MapLayoutPanel(new AllMaps().getMap(0));
-        add(mapLayoutPanel);
+
+
+
+    }
+
+    private void endGame(){
+        //TODO: add button to end game, return to menu
+        CardLayout cl = (CardLayout) mainPanel.getLayout();
+        cl.show(mainPanel, "SettingsMap");
+        cl.removeLayoutComponent(this);
     }
 }
+

@@ -32,8 +32,9 @@ public class MyFrame extends JFrame {
         SettingsPanel settingsPanel = new SettingsPanel(panel);
         panel.add(settingsPanel, "Settings");
 
-        GamePanel gamePanel = new GamePanel(panel);
-        panel.add(gamePanel, "Game");
+        BeforeGameSettingsPanel beforeGameSettingsPanel = new BeforeGameSettingsPanel(panel);
+        panel.add(beforeGameSettingsPanel, "SettingsMap");
+
 
         cardLayout = (CardLayout) panel.getLayout();
         cardLayout.show(panel, "Menu");

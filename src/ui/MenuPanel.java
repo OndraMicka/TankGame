@@ -16,7 +16,7 @@ public class MenuPanel extends JPanel {
         add(Box.createVerticalGlue());
         JButton startButton = JButtonFactory.createMenuButton("START", e -> {
                 CardLayout cl = (CardLayout) mainPanel.getLayout();
-                cl.show(mainPanel, "Game");
+                cl.show(mainPanel, "SettingsMap");
         });
         JButton settingsButton = JButtonFactory.createMenuButton("SETTINGS", e -> {
                 CardLayout cl = (CardLayout) mainPanel.getLayout();
