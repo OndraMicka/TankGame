@@ -1,6 +1,8 @@
 package core;
 
 
+import types.MyReferenceString;
+
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class Settings {

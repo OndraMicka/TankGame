@@ -1,5 +1,4 @@
 import core.ConfigManager;
-import core.Game;
 import ui.MyFrame;
 
 public class Main {

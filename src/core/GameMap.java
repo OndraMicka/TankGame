@@ -15,14 +15,22 @@ public class GameMap {
     private final Block[][] mapArray;
     private final String name;
 
-    public GameMap(String name,String filePath) {
+    private Image image;
+
+   private Player player1;
+   private Player player2;
+
+    public GameMap(String name,String mapImage,String filePathCollisionGrid, Player player1, Player player2) {
         BufferedImage img;
+        this.player1 = player1;
+        this.player2 = player2;
         this.name = name;
         try {
-            img = ImageIO.read(new File(filePath));
+            image = ImageIO.read(new File(mapImage));
+            img = ImageIO.read(new File(filePathCollisionGrid));
             setHeight(img.getHeight());
             setWidth(img.getWidth());
-            mapArray = new Block[getHeight()][getWidth()];
+            mapArray = new Block[getWidth()][getHeight()];
             for (int x = 0; x <img.getWidth() ; x++) {
                 for (int y = 0; y < img.getHeight(); y++) {
                     if (img.getRGB(x, y) == Color.WHITE.getRGB()) {
@@ -65,6 +73,18 @@ public class GameMap {
 
     public String getName() {
         return name;
+    }
+
+    public Player getPlayer1() {
+        return player1;
+    }
+
+    public Player getPlayer2() {
+        return player2;
+    }
+
+    public Image getImage() {
+        return image;
     }
 }
 

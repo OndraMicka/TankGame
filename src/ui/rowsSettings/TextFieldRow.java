@@ -1,6 +1,6 @@
 package ui.rowsSettings;
 
-import core.MyReferenceString;
+import types.MyReferenceString;
 
 import javax.swing.*;
 import javax.swing.event.DocumentEvent;

@@ -1,8 +1,6 @@
 package ui;
 
-import core.Game;
-import core.GameMap;
-import core.MapLayoutPanel;
+import core.*;
 
 import javax.swing.*;
 import java.awt.*;
@@ -10,10 +8,15 @@ import java.awt.*;
 public class GamePanel extends JPanel {
     private JPanel mainPanel;
 
-    private Game game;
-    private MapLayoutPanel mapPanel;
-    public GamePanel(JPanel mainPanel) {
+
+    public GamePanel(JPanel mainPanel,GameMap gameMap) {
         this.mainPanel = mainPanel;
+        GameThread thread = new GameThread(gameMap, this);
+        thread.start();
+        this.setLayout(new BorderLayout());
+        this.add(thread.getMapLayoutPanel(), BorderLayout.CENTER);
+
+
 
 
 

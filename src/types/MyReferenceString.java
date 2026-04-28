@@ -1,4 +1,4 @@
-package core;
+package types;
 
 public class MyReferenceString{
     private String value;
