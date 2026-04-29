@@ -8,6 +8,8 @@ public class Player {
     private int speed;
 
     private double rotation;
+    private double turretRotation;
+
     private double x;
     private double y;
 
@@ -16,19 +18,4 @@ public class Player {
         this.x = x;
     }
 
-    public double getX() {
-        return x;
-    }
-
-    public double getY() {
-        return y;
-    }
-
-    public void setY(double y) {
-        this.y = y;
-    }
-
-    public void setX(double x) {
-        this.x = x;
-    }
 }
