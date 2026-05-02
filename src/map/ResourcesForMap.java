@@ -1,10 +1,13 @@
-package core;
+package map;
 
 import java.awt.*;
 
 public class ResourcesForMap {
+    //center of image must be place for turret.
     private Image player1Body;
     private Image player2Body;
+
+    //center of image must be center of rotation for turret
     private Image player1Turret;
     private Image player2Turret;
 

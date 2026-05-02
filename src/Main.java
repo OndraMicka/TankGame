@@ -1,4 +1,4 @@
-import core.ConfigManager;
+import settings.ConfigManager;
 import ui.MyFrame;
 
 public class Main {

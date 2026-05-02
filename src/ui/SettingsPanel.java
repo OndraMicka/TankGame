@@ -1,15 +1,13 @@
 package ui;
 
-import core.ConfigManager;
-import core.Settings;
-import ui.rowsSettings.CheckBoxRow;
+import settings.ConfigManager;
+import settings.Settings;
 import ui.rowsSettings.KeyButtonRow;
 import ui.rowsSettings.LabelRow;
 import ui.rowsSettings.TextFieldRow;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.concurrent.atomic.AtomicBoolean;
 
 public class SettingsPanel extends JPanel {
     //can switch panels with card layout, so we need reference to main panel
@@ -47,19 +45,26 @@ public class SettingsPanel extends JPanel {
 
         container.add(new LabelRow("Player 1 Settings"));
         container.add(new TextFieldRow("Name", player1Settings.getPlayerName()));
-        container.add(new KeyButtonRow("Move Forward", player1Settings.getMoveForwardKey()));
-        container.add(new KeyButtonRow("Move Backward", player1Settings.getMoveBackKey()));
-        container.add(new KeyButtonRow("Turn Left", player1Settings.getTurnLeftKey()));
-        container.add(new KeyButtonRow("Turn Right", player1Settings.getTurnRightKey()));
-        container.add(new KeyButtonRow("Fire", player1Settings.getFireKey()));
+        container.add(new KeyButtonRow("Move Forward", player1Settings.getForward()));
+        container.add(new KeyButtonRow("Move Backward", player1Settings.getBackward()));
+        container.add(new KeyButtonRow("Rotate Tank Left", player1Settings.getRotateTankLeft()));
+        container.add(new KeyButtonRow("Rotate Tank Right", player1Settings.getRotateTankRight()));
+        container.add(new KeyButtonRow("Rotate Turret Left", player1Settings.getRotateTurretLeft()));
+        container.add(new KeyButtonRow("Rotate Turret Right", player1Settings.getRotateTurretRight()));
+        container.add(new KeyButtonRow("Fire", player1Settings.getBullet()));
+        container.add(new KeyButtonRow("Launch Rocket", player1Settings.getRocket()));
 
         container.add(new LabelRow("Player 2 Settings"));
         container.add(new TextFieldRow("Name", player2Settings.getPlayerName()));
-        container.add(new KeyButtonRow("Move Forward", player2Settings.getMoveForwardKey()));
-        container.add(new KeyButtonRow("Move Backward", player2Settings.getMoveBackKey()));
-        container.add(new KeyButtonRow("Turn Left", player2Settings.getTurnLeftKey()));
-        container.add(new KeyButtonRow("Turn Right", player2Settings.getTurnRightKey()));
-        container.add(new KeyButtonRow("Fire", player2Settings.getFireKey()));
+        container.add(new KeyButtonRow("Move Forward", player2Settings.getForward()));
+        container.add(new KeyButtonRow("Move Backward", player2Settings.getBackward()));
+        container.add(new KeyButtonRow("Rotate Tank Left", player2Settings.getRotateTankLeft()));
+        container.add(new KeyButtonRow("Rotate Tank Right", player2Settings.getRotateTankRight()));
+        container.add(new KeyButtonRow("Rotate Turret Left", player2Settings.getRotateTurretLeft()));
+        container.add(new KeyButtonRow("Rotate Turret Right", player2Settings.getRotateTurretRight()));
+        container.add(new KeyButtonRow("Fire", player2Settings.getBullet()));
+        container.add(new KeyButtonRow("Launch Rocket", player2Settings.getRocket()));
+        
     }
 
     private void createUIComponents() {

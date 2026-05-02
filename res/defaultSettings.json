@@ -1,22 +1,28 @@
 {
   "player1": {
-    "moveForwardKey": 87,
-    "moveBackKey": 83,
-    "turnLeftKey": 65,
-    "turnRightKey": 68,
-    "fireKey": 32,
     "playerName": {
       "value": "Player 1"
-    }
+    },
+    "forward": 87,
+    "backward": 83,
+    "rocket": 82,
+    "bullet": 70,
+    "rotateTurretLeft": 81,
+    "rotateTurretRight": 69,
+    "rotateTankLeft": 65,
+    "rotateTankRight": 68
   },
   "player2": {
-    "moveForwardKey": 38,
-    "moveBackKey": 40,
-    "turnLeftKey": 37,
-    "turnRightKey": 39,
-    "fireKey": 10,
     "playerName": {
       "value": "Player 2"
-    }
+    },
+    "forward": 38,
+    "backward": 40,
+    "rocket": 16,
+    "bullet": 10,
+    "rotateTurretLeft": 33,
+    "rotateTurretRight": 34,
+    "rotateTankLeft": 37,
+    "rotateTankRight": 39
   }
 }

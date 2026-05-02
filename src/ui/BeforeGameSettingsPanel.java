@@ -1,12 +1,10 @@
 package ui;
 
 
-import core.AllMaps;
-import core.GameMap;
+import map.AllMaps;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.ArrayList;
 
 public class BeforeGameSettingsPanel extends JPanel {
     private AllMaps allMaps;

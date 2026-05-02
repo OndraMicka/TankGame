@@ -1,8 +1,9 @@
-package core;
+package map;
 
 import blocksOnMap.Block;
 import blocksOnMap.EmptySpace;
 import blocksOnMap.Wall;
+import entities.Player;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -14,6 +15,8 @@ public class GameMap {
     private int width, height;
     private final Block[][] mapArray;
     private final String name;
+
+    //private final ArrayList<Bullet> bullets;
 
     private Image image;
 
