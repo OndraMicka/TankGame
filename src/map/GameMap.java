@@ -3,6 +3,7 @@ package map;
 import blocksOnMap.Block;
 import blocksOnMap.EmptySpace;
 import blocksOnMap.Wall;
+import entities.Bullet;
 import entities.Player;
 
 import javax.imageio.ImageIO;
@@ -10,13 +11,16 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 public class GameMap {
     private int width, height;
     private final Block[][] mapArray;
     private final String name;
 
-    //private final ArrayList<Bullet> bullets;
+    private final CopyOnWriteArrayList<Bullet> bullets;
 
     private Image image;
 
@@ -25,6 +29,7 @@ public class GameMap {
 
     public GameMap(String name,String mapImage,String filePathCollisionGrid, Player player1, Player player2) {
         BufferedImage img;
+        bullets = new CopyOnWriteArrayList<>();
         this.player1 = player1;
         this.player2 = player2;
         this.name = name;
@@ -88,6 +93,12 @@ public class GameMap {
 
     public Image getImage() {
         return image;
+    }
+    public CopyOnWriteArrayList<Bullet> getBullets() {
+        return bullets;
+    }
+    public void addBullet(Bullet bullet) {
+        bullets.add(bullet);
     }
 }
 

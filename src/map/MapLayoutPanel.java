@@ -1,5 +1,6 @@
 package map;
 
+import entities.Bullet;
 import entities.Player;
 
 import javax.swing.*;
@@ -54,8 +55,8 @@ public class MapLayoutPanel extends JPanel {
         double distWorldX = Math.abs(player1.getX() - player2.getX()) + 1.5;
         double distWorldY = Math.abs(player1.getY() - player2.getY()) + 1.5;
 
-        double requiredWidthPx = distWorldX * scaleFactor + 200;
-        double requiredHeightPx = distWorldY * scaleFactor + 200;
+        double requiredWidthPx = distWorldX * scaleFactor + 400;
+        double requiredHeightPx = distWorldY * scaleFactor + 400;
 
         double targetZoom = Math.min((double) panelWidth / requiredWidthPx, (double) panelHeight / requiredHeightPx);
 
@@ -78,6 +79,11 @@ public class MapLayoutPanel extends JPanel {
         // 5. VYKRESLENÍ HRÁČŮ
         drawTank(g2d, player1.getX(), player1.getY(), player1.getRotation(), player1.getTurretRotation(), resources.getPlayer1Body(), resources.getPlayer1Turret());
         drawTank(g2d, player2.getX(), player2.getY(), player2.getRotation(), player2.getTurretRotation(), resources.getPlayer2Body(), resources.getPlayer2Turret());
+
+        g2d.setColor(Color.RED);
+        for(Bullet bullet:gameMap.getBullets()){
+            g2d.fillRect((int)(bullet.getX()*scaleFactor)-5, (int)(bullet.getY()*scaleFactor)-5, 10, 10);
+        }
 
         repaint();
     }

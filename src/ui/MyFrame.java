@@ -13,6 +13,7 @@ public class MyFrame extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         setMinimumSize(new Dimension(400, 300));
+        setExtendedState(JFrame.MAXIMIZED_BOTH);
 
         panel = new JPanel();
         panel.setBackground(Color.GREEN);

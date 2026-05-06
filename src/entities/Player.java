@@ -13,8 +13,12 @@ public class Player {
     private double rotation;
     private double turretRotation;
 
+    private long fireDelayMillis;
+    private long lastBulletFiredMillis;
+
     private double x;
     private double y;
+
 
     private int fps;
 
@@ -24,6 +28,7 @@ public class Player {
         this.maxHealth = 100;
         this.health = maxHealth;
         this.maxSpeed = 0.03;
+        this.fireDelayMillis = 1000;
     }
 
     /**
@@ -86,6 +91,15 @@ public class Player {
         // Plynulé zastavení (tření)
         speed *= 0.9;
         if (Math.abs(speed) < 0.0001) speed = 0;
+    }
+
+    public void fire(GameMap map, TypeOfBullet bullet,Player owner, Player target) {
+        if (System.currentTimeMillis() - lastBulletFiredMillis > fireDelayMillis) {
+            lastBulletFiredMillis = System.currentTimeMillis();
+            double spawnX = x + Math.cos(Math.toRadians(turretRotation)) / 3;
+            double spawnY = y + Math.sin(Math.toRadians(turretRotation)) / 3;
+            map.addBullet(new Bullet(target, owner, bullet, turretRotation, spawnX, spawnY));
+        }
     }
 
     // Pomocná funkce pro omezení hodnoty mezi min a max
@@ -192,4 +206,13 @@ public class Player {
     public void setFps(int fps) {
         this.fps = fps;
     }
+
+    public void decreaseHealth(int health) {
+        if (this.health-health < 0) {
+            this.health = 0;
+        }else {
+            this.health -= health;
+        }
+    }
+
 }
