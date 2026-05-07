@@ -92,8 +92,8 @@ public class GameThread extends Thread {
         if (player2Input.isRotateTankRight()) player2.rotateTankRight();
         if (player2Input.isRotateTurretLeft()) player2.rotateTurretLeft();
         if (player2Input.isRotateTurretRight()) player2.rotateTurretRight();
-        if (player2Input.isBullet()) player1.fire(gameMap, entities.TypeOfBullet.BASIC,player2, player1);
-        if (player2Input.isRocket()) player1.fire(gameMap, entities.TypeOfBullet.ROCKET, player2, player1);
+        if (player2Input.isBullet()) player2.fire(gameMap, entities.TypeOfBullet.BASIC,player2, player1);
+        if (player2Input.isRocket()) player2.fire(gameMap, entities.TypeOfBullet.ROCKET, player2, player1);
         //TODO rocket, bullet
     }
 

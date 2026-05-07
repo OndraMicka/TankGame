@@ -18,10 +18,10 @@
     },
     "forward": 38,
     "backward": 40,
-    "rocket": 16,
-    "bullet": 10,
-    "rotateTurretLeft": 33,
-    "rotateTurretRight": 34,
+    "rocket": 101,
+    "bullet": 98,
+    "rotateTurretLeft": 97,
+    "rotateTurretRight": 99,
     "rotateTankLeft": 37,
     "rotateTankRight": 39
   }
