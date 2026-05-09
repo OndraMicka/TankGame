@@ -22,6 +22,8 @@ public class GameThread extends Thread {
     
     private KeyInputManager keyInputManager;
 
+    private volatile boolean running = true;
+
     public GameThread(GameMap map, GamePanel gamePanel, int fps) {
         this.fps = fps;
         player1 = map.getPlayer1();
@@ -33,8 +35,7 @@ public class GameThread extends Thread {
         
         this.keyInputManager = new KeyInputManager();
         this.gamePanel = gamePanel;
-        
-        // Nastavit fokus pro klávesnici
+
         gamePanel.setFocusable(true);
         gamePanel.addKeyListener(keyInputManager);
 
@@ -44,12 +45,12 @@ public class GameThread extends Thread {
 
     @Override
     public void run() {
-        initialize();
-        gamePanel.requestFocus();
-        while (true) {
+        SwingUtilities.invokeLater(this::initialize);
+        SwingUtilities.invokeLater(() -> gamePanel.requestFocusInWindow());
+        while (running) {
             handleInput();
             logic();
-            draw();
+            SwingUtilities.invokeLater(this::draw);
 
             try {
                 Thread.sleep(1000 / fps);
@@ -109,9 +110,14 @@ public class GameThread extends Thread {
 
     private void draw() {
         mapLayoutPanel.repaint();
+        gamePanel.repaint();
     }
 
     public MapLayoutPanel getMapLayoutPanel() {
         return mapLayoutPanel;
+    }
+    
+    public void stopGame() {
+        running = false;
     }
 }

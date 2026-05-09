@@ -23,7 +23,7 @@ public class MenuPanel extends JPanel {
                 cl.show(mainPanel, "Settings");
         });
         JButton endButton = JButtonFactory.createMenuButton("END", e -> {
-                System.exit(0);
+                SwingUtilities.invokeLater(()->System.exit(0));
         });
         settingsButton.setAlignmentX(Component.CENTER_ALIGNMENT);
         startButton.setAlignmentX(Component.CENTER_ALIGNMENT);

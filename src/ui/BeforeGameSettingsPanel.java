@@ -4,6 +4,7 @@ package ui;
 import map.AllMaps;
 
 import javax.swing.*;
+import javax.swing.plaf.basic.BasicComboBoxUI;
 import java.awt.*;
 
 public class BeforeGameSettingsPanel extends JPanel {
@@ -34,7 +35,7 @@ public class BeforeGameSettingsPanel extends JPanel {
         nameBox.setRequestFocusEnabled(false);
         nameBox.setOpaque(true);
 
-        nameBox.setUI(new javax.swing.plaf.basic.BasicComboBoxUI() {
+        nameBox.setUI(new BasicComboBoxUI() {
             @Override
             protected JButton createArrowButton() {
                 JButton button = super.createArrowButton();
@@ -46,9 +47,10 @@ public class BeforeGameSettingsPanel extends JPanel {
 
 
         add(Box.createVerticalGlue());
+
         JButton startButton = JButtonFactory.createMenuButton("START GAME", e -> {
             CardLayout cl = (CardLayout) mainPanel.getLayout();
-
+            allMaps = new AllMaps();
             GamePanel gamePanel = new GamePanel(mainPanel,allMaps.getMap((String)nameBox.getSelectedItem()));
             mainPanel.add(gamePanel, "Game");
             cl.show(mainPanel, "Game");
@@ -58,6 +60,8 @@ public class BeforeGameSettingsPanel extends JPanel {
             CardLayout cl = (CardLayout) mainPanel.getLayout();
             cl.show(mainPanel, "Menu");
         });
+
+
         startButton.setAlignmentX(Component.CENTER_ALIGNMENT);
         backButton.setAlignmentX(Component.CENTER_ALIGNMENT);
 
@@ -67,9 +71,5 @@ public class BeforeGameSettingsPanel extends JPanel {
         add(Box.createVerticalStrut(10));
         add(backButton);
         add(Box.createVerticalGlue());
-
-
-//        mapLayoutPanel = new MapLayoutPanel(new AllMaps().getMap(0));
-//        add(mapLayoutPanel);
     }
 }
