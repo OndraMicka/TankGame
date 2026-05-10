@@ -2,6 +2,10 @@ package classResources;
 
 import java.awt.*;
 
+/**
+ * This class holds all images of the game.
+ * Like tank bodies, turrets, bullets, etc.
+ */
 public class ResourcesForMap {
     //center of image must be place for turret.
     private Image player1Body;

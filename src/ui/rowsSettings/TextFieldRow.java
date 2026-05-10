@@ -8,9 +8,15 @@ import javax.swing.event.DocumentListener;
 import java.awt.*;
 
 /**
- * created by github copilot
+ * A row with a text field for editing string settings.
+ * Created by GitHub Copilot
  */
 public class TextFieldRow extends SettingRowPanel {
+    /**
+     * Creates a text field row.
+     * @param displayName the label text
+     * @param valueReference the string value reference to update when text changes.
+     */
     public TextFieldRow(String displayName, MyReferenceString valueReference) {
         super(displayName);
 

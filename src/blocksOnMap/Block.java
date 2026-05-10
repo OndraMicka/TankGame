@@ -1,9 +1,23 @@
 package blocksOnMap;
 
-
+/**
+ * Abstract class representing a block on the game map.
+ * Map of blocks is not visible for player.
+ * Blocks are used for collision detection, player or bullet cannot pass wall
+ */
 public abstract class Block {
+
+    /**
+     * Index of block on map.
+     */
     private int x;
     private int y;
+
+
+    /**
+     * Whether the block is passable (empty space) or not (wall).
+     * Used for collision detection.
+     */
     private boolean passable;
 
 

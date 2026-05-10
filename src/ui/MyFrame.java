@@ -3,10 +3,19 @@ package ui;
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * The main game window.
+ * Sets up the frame and switches between different panels (menu, settings, game).
+ */
 public class MyFrame extends JFrame {
+    /** The main panel holding all screens. */
     private JPanel panel;
+    /** The layout for switching between panels. */
     private CardLayout cardLayout;
 
+    /**
+     * Creates the main game window.
+     */
     public MyFrame() {
         setTitle("Game");
         setSize(600, 400);
@@ -26,6 +35,9 @@ public class MyFrame extends JFrame {
         setVisible(true);
     }
 
+    /**
+     * Adds all the panels to the main panel with card layout.
+     */
     private void addPanels() {
         MenuPanel menuPanel = new MenuPanel(panel);
         panel.add(menuPanel, "Menu");
@@ -39,13 +51,5 @@ public class MyFrame extends JFrame {
 
         cardLayout = (CardLayout) panel.getLayout();
         cardLayout.show(panel, "Menu");
-    }
-
-    public CardLayout getCardLayout() {
-        return cardLayout;
-    }
-
-    public JPanel getPanel() {
-        return panel;
     }
 }

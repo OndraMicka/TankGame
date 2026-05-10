@@ -3,8 +3,18 @@ package ui;
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * The main menu panel.
+ * Shows START, SETTINGS, and END button.
+ */
 public class MenuPanel extends JPanel {
+    /** The main panel for switching between screens(Card layout) */
     private final JPanel mainPanel;
+
+    /**
+     * Creates the menu panel.
+     * @param mainPanel the main panel to switch screens with
+     */
     public MenuPanel(JPanel mainPanel) {
         this.mainPanel = mainPanel;
         setBackground(new Color(0, 0, 0));
@@ -12,6 +22,10 @@ public class MenuPanel extends JPanel {
 
         addButtons();
     }
+
+    /**
+     * Adds the menu buttons.
+     */
     private void addButtons() {
         add(Box.createVerticalGlue());
         JButton startButton = JButtonFactory.createMenuButton("START", e -> {

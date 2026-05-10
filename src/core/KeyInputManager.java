@@ -7,6 +7,11 @@ import settings.Settings;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
+/**
+ * Handles key inputs from players.
+ * Used in game loop to execute method.
+ * Works with different settings for player 1 and player 2, so they can use different keys.
+ */
 public class KeyInputManager extends KeyAdapter {
     private PlayerInput player1Input;
     private PlayerInput player2Input;
@@ -16,6 +21,9 @@ public class KeyInputManager extends KeyAdapter {
         this.player2Input = new PlayerInput();
     }
 
+    /**
+     * When key is pressed, updates variable to true.
+     */
     @Override
     public void keyPressed(KeyEvent e) {
         int key = e.getKeyCode();
@@ -43,6 +51,9 @@ public class KeyInputManager extends KeyAdapter {
         if (key == player2Settings.getRotateTankRight().get()) player2Input.rotateTankRight = true;
     }
 
+    /**
+     * When key is released, updates variable to false.
+     */
     @Override
     public void keyReleased(KeyEvent e) {
         int key = e.getKeyCode();
@@ -70,6 +81,9 @@ public class KeyInputManager extends KeyAdapter {
         if (key == player2Settings.getRotateTankRight().get()) player2Input.rotateTankRight = false;
     }
 
+    /**
+     * Class for storing current input state of a player. Contains boolean variables for each possible action, which are updated by keyPressed and keyReleased methods.
+     */
     public class PlayerInput{
         private boolean forward, backward;
         private boolean rocket,bullet;

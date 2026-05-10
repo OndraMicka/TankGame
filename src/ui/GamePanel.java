@@ -9,18 +9,35 @@ import settings.Settings;
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * The game panel that shows the actual game.
+ * When created, game loop starts.
+ * Displays the map, players, bullets, and health info.
+ */
 public class GamePanel extends JPanel {
+    /** The main panel for switching screens. */
     private JPanel mainPanel;
+    /** The game map. */
     private GameMap gameMap;
+    /** The game thread running the game loop. */
     private GameThread thread;
 
+    /** Info string for player 1 to show health. */
     private String player1Info;
+    /** Info string for player 2 to show health. */
     private String player2Info;
 
+    /** Label showing player 1 health. */
     private JLabel player1Health;
+    /** Label showing player 2 health. */
     private JLabel player2Health;
 
 
+    /**
+     * Creates the game panel and starts the game.
+     * @param mainPanel the main panel for switching screens
+     * @param gameMap the map to play on, picked from beforeGameSettingsPanel
+     */
     public GamePanel(JPanel mainPanel, GameMap gameMap) {
         this.mainPanel = mainPanel;
         this.gameMap = gameMap;
@@ -37,6 +54,10 @@ public class GamePanel extends JPanel {
         SwingUtilities.invokeLater(this::requestFocusInWindow);
     }
 
+    /**
+     * Creates the health panel showing both players' health.
+     * @return the health panel
+     */
     private JPanel createHealthPanel() {
         JPanel healthPanel = new JPanel();
         healthPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 50, 10));
@@ -56,6 +77,10 @@ public class GamePanel extends JPanel {
         return healthPanel;
     }
     
+    /**
+     * Creates the top panel with the end game button.
+     * @return the top panel
+     */
     private JPanel createTopPanel() {
         JPanel topPanel = new JPanel();
         topPanel.setLayout(new BorderLayout());
@@ -73,6 +98,9 @@ public class GamePanel extends JPanel {
         return topPanel;
     }
 
+    /**
+     * Stops the game and goes back to the menu.
+     */
     private void endGame(){
         thread.stopGame();
 
@@ -82,6 +110,9 @@ public class GamePanel extends JPanel {
 
     }
 
+    /**
+     * Updates the health display.
+     */
     @Override
     public void paint(Graphics g) {
         //TODO add health bar

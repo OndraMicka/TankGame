@@ -3,8 +3,15 @@ package ui.rowsSettings;
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * A large label row for displaying headers.
+ */
 public class LabelRow extends SettingRowPanel {
 
+    /**
+     * Creates a label row.
+     * @param displayName the text to display
+     */
     public LabelRow(String displayName) {
         super(displayName);
 

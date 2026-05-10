@@ -8,22 +8,39 @@ import javax.swing.*;
 import java.awt.*;
 
 /**
- * Třída Vygenerována od gemini.
+ * Panel that draws the game map and all game objects.
+ * Made by Gemini AI
+ * Handles camera smoothing and zoom based on player positions so that both players are visible on the screen at all times.
+ * The camera smoothly follows the midpoint between the two players and zooms in or out based on their distance.
  */
 public class MapLayoutPanel extends JPanel {
+    /** The game map to draw. */
     private GameMap gameMap;
     private Player player1;
     private Player player2;
+
+    /** Scale factor to convert game map coords to pixels. */
     private int scaleFactor = 100;
 
+    /** Images for tanks and the map. */
     private ResourcesForMap resources;
 
-    // --- PROMĚNNÉ PRO PLYNULOU KAMERU ---
+    /** Current camera x position (world coords). */
     private double currentCamX = 0;
+    /** Current camera y position (world coords). */
     private double currentCamY = 0;
+    /** Current camera zoom level. */
     private double currentZoom = 1.0;
-    private final double SMOOTHING = 0.05; // Rychlost plynulosti (0.01 až 0.1)
+    /** Speed of camera smoothing (0.01 to 0.1 recommended, can be lower). */
+    private final double SMOOTHING = 0.005;
 
+    /**
+     * Creates the map panel.
+     * @param gameMap the map to display
+     * @param player1 first player
+     * @param player2 second player
+     * @param resources images for rendering players, map, bullets...
+     */
     public MapLayoutPanel(GameMap gameMap, Player player1, Player player2, ResourcesForMap resources) {
         this.gameMap = gameMap;
         this.player1 = player1;
@@ -39,6 +56,10 @@ public class MapLayoutPanel extends JPanel {
         this.setVisible(true);
     }
 
+    /**
+     * Draws the map, players, and bullets.
+     * Updates camera position and zoom smoothly.
+     */
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
@@ -89,6 +110,16 @@ public class MapLayoutPanel extends JPanel {
         repaint();
     }
 
+    /**
+     * Draws a tank with body and turret at the given position.
+     * @param g2d the graphics context
+     * @param x the x position
+     * @param y the y position
+     * @param bodyAngle the angle of the tank body
+     * @param turretAngle the angle of the turret
+     * @param bodyImg the body image
+     * @param turretImg the turret image
+     */
     private void drawTank(Graphics2D g2d, double x, double y, double bodyAngle, double turretAngle, Image bodyImg, Image turretImg) {
         java.awt.geom.AffineTransform old = g2d.getTransform();
 
@@ -113,4 +144,3 @@ public class MapLayoutPanel extends JPanel {
         g2d.setTransform(old);
     }
 }
-

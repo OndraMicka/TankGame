@@ -3,8 +3,17 @@ package ui.rowsSettings;
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * Abstract class for a settings row.
+ * Used as a base for different types of setting rows (checkbox, text field...).
+ * Provides common styling and layout for all setting rows.
+ */
 public abstract class SettingRowPanel extends JPanel {
 
+    /**
+     * Creates a setting row with a label on the left.
+     * @param displayName the label text to show
+     */
     public SettingRowPanel(String displayName) {
         setLayout(new BorderLayout());
 

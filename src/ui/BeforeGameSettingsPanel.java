@@ -7,15 +7,25 @@ import javax.swing.*;
 import javax.swing.plaf.basic.BasicComboBoxUI;
 import java.awt.*;
 
+/**
+ * Panel for choosing a map before starting the game.
+ * Lets player chose map.
+ */
 public class BeforeGameSettingsPanel extends JPanel {
+    /** Holds all available maps. */
     private AllMaps allMaps;
 
+    /** The main panel for switching screens(Card layout). */
     private JPanel mainPanel;
 
     private JPanel panel1;
     private JButton button1;
     private JButton button2;
 
+    /**
+     * Creates the before game settings panel.
+     * @param mainPanel the main panel for screen switching
+     */
     public BeforeGameSettingsPanel(JPanel mainPanel) {
         this.mainPanel = mainPanel;
         allMaps = new AllMaps();

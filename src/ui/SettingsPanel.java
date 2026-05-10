@@ -9,23 +9,35 @@ import ui.rowsSettings.TextFieldRow;
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * Panel for configuring game settings.
+ * Lets you change key bindings and player names.
+ */
 public class SettingsPanel extends JPanel {
-    //can switch panels with card layout, so we need reference to main panel
+    /** Reference to the main panel for card layout switching. */
     private JPanel mainPanel;
 
 
+    /** The main content pane. */
     private JPanel contentPane;
+    /** Scroll pane for the settings. */
     private JScrollPane scrollPane;
     private JPanel sidePanelEast;
     private JPanel sidePanelWest;
     private JPanel midlePanel;
+    /** Panel holding buttons. */
     private JPanel buttonsPanel;
     private JButton buttonBack;
     private JButton buttonReset;
     private JButton buttonApply;
 
-    private JPanel container; //panel in scrollPane
+    /** Container panel inside the scroll pane, shows all rows. */
+    private JPanel container;
 
+    /**
+     * Creates the settings panel.
+     * @param mainPanel the main panel for card layout switching
+     */
     public SettingsPanel(JPanel mainPanel) {
         this.setLayout(new BorderLayout());
         this.add(contentPane, BorderLayout.CENTER);
@@ -39,6 +51,9 @@ public class SettingsPanel extends JPanel {
         container.repaint();
     }
 
+    /**
+     * Adds all the setting rows to the container.
+     */
     private void addButtonsToContainer() {
         Settings.PlayerSettings player1Settings = ConfigManager.getSettings().getPlayer1();
         Settings.PlayerSettings player2Settings = ConfigManager.getSettings().getPlayer2();
@@ -67,6 +82,10 @@ public class SettingsPanel extends JPanel {
         
     }
 
+    /**
+     * Creates the UI components.
+     * Called by the form designer.
+     */
     private void createUIComponents() {
         container = new JPanel();
         container.setLayout(new BoxLayout(container, BoxLayout.Y_AXIS));

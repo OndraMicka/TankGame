@@ -5,8 +5,14 @@ import types.MyReferenceString;
 
 import java.util.concurrent.atomic.AtomicInteger;
 
+/**
+ * Holds all game settings for both players.
+ * Stores key bindings and other player specific configuration.
+ */
 public class Settings {
+    /** Settings for player 1. */
     private PlayerSettings player1 = new PlayerSettings();
+    /** Settings for player 2. */
     private PlayerSettings player2 = new PlayerSettings();
 
     public PlayerSettings getPlayer1() {
@@ -17,18 +23,41 @@ public class Settings {
         return player2;
     }
 
+    /**
+     * Inner class holding settings for a single player.
+     * Includes key bindings for all actions.
+     */
     public class PlayerSettings {
+        /** The player's name. */
         private MyReferenceString playerName;
 
-        private AtomicInteger forward, backward;
-        private AtomicInteger rocket,bullet;
-        private AtomicInteger rotateTurretLeft, rotateTurretRight;
-        private AtomicInteger rotateTankLeft, rotateTankRight;
+        /** Key code for moving forward. */
+        private AtomicInteger forward;
+        /** Key code for moving backward. */
+        private AtomicInteger backward;
+        /** Key code for firing a rocket. */
+        private AtomicInteger rocket;
+        /** Key code for firing a bullet. */
+        private AtomicInteger bullet;
+        /** Key code for rotating turret left. */
+        private AtomicInteger rotateTurretLeft;
+        /** Key code for rotating turret right. */
+        private AtomicInteger rotateTurretRight;
+        /** Key code for rotating tank left. */
+        private AtomicInteger rotateTankLeft;
+        /** Key code for rotating tank right. */
+        private AtomicInteger rotateTankRight;
 
+        /**
+         * Constructor required for gson.
+         */
         public PlayerSettings() {
         }
 
 
+        /**
+         * Getters and setters for all settings fields.
+         */
         public AtomicInteger getForward() {
             return forward;
         }
