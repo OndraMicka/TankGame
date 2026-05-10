@@ -1,6 +1,7 @@
-package map;
+package classResources;
 
 import entities.Player;
+import map.GameMap;
 
 import java.util.ArrayList;
 

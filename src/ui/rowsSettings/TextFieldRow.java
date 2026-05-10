@@ -18,7 +18,7 @@ public class TextFieldRow extends SettingRowPanel {
         textField.setForeground(new Color(189, 189, 189));
         textField.setBorder(BorderFactory.createLineBorder(new Color(0,0,0)));
         textField.setBackground(new Color(42, 66, 31));
-        textField.setPreferredSize(new Dimension(75, 50));
+        textField.setPreferredSize(new Dimension(150, 50));
         add(textField, BorderLayout.EAST);
 
         textField.getDocument().addDocumentListener(new DocumentListener() {

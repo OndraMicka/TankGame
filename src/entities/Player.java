@@ -93,6 +93,13 @@ public class Player {
         if (Math.abs(speed) < 0.0001) speed = 0;
     }
 
+    // Pomocná funkce pro omezení hodnoty mezi min a max
+    private double clamp(double value, double min, double max) {
+        return Math.max(min, Math.min(max, value));
+    }
+
+
+
     public void fire(GameMap map, TypeOfBullet bullet,Player owner, Player target) {
         if (System.currentTimeMillis() - lastBulletFiredMillis > fireDelayMillis) {
             lastBulletFiredMillis = System.currentTimeMillis();
@@ -102,15 +109,10 @@ public class Player {
         }
     }
 
-    // Pomocná funkce pro omezení hodnoty mezi min a max
-    private double clamp(double value, double min, double max) {
-        return Math.max(min, Math.min(max, value));
-    }
-
     public void accelerate() {
         if(fps == 0){
             fps = 50;
-            throw new RuntimeException("FDS is not setted, setted to default 50");
+            throw new RuntimeException("FDS is not setted, now setted to default 50");
         }
         //acceleration rate in one sec
         double acceleration =  0.2/fps;
@@ -125,7 +127,7 @@ public class Player {
     public void decelerate() {
         if(fps == 0){
             fps = 50;
-            throw new RuntimeException("FDS is not setted, setted to default 50");
+            throw new RuntimeException("FDS is not setted, now setted to default 50");
         }
         //acceleration rate in one sec
         double acceleration =  0.2/fps;
@@ -140,7 +142,7 @@ public class Player {
     public void rotateTankLeft() {
         if(fps == 0){
             fps = 50;
-            throw new RuntimeException("FDS is not setted, setted to default 50");
+            throw new RuntimeException("FDS is not setted, now setted to default 50");
         }
         //rotated degrees in one second.
         rotation -= 80./fps;
@@ -148,7 +150,7 @@ public class Player {
     public void rotateTankRight() {
         if(fps == 0){
             fps = 50;
-            throw new RuntimeException("FDS is not setted, setted to default 50");
+            throw new RuntimeException("FDS is not setted, now setted to default 50");
         }
         //rotated degrees in one second.
         rotation += 80./fps;
@@ -156,7 +158,7 @@ public class Player {
     public void rotateTurretLeft() {
         if(fps == 0){
             fps = 50;
-            throw new RuntimeException("FDS is not setted, setted to default 50");
+            throw new RuntimeException("FDS is not setted, now setted to default 50");
         }
         //rotated degrees in one second.
         turretRotation -= 80./fps;
@@ -164,7 +166,7 @@ public class Player {
     public void rotateTurretRight() {
         if(fps == 0){
             fps = 50;
-            throw new RuntimeException("FDS is not setted, setted to default 50");
+            throw new RuntimeException("FDS is not setted, now setted to default 50");
         }
         //rotated degrees in one second.
         turretRotation += 80./fps;

@@ -1,5 +1,6 @@
 package map;
 
+import classResources.ResourcesForMap;
 import entities.Bullet;
 import entities.Player;
 

@@ -34,7 +34,7 @@ public class GamePanel extends JPanel {
         this.add(createTopPanel(), BorderLayout.NORTH);
 
         this.setFocusable(true);
-        SwingUtilities.invokeLater(() -> this.requestFocusInWindow());
+        SwingUtilities.invokeLater(this::requestFocusInWindow);
     }
 
     private JPanel createHealthPanel() {

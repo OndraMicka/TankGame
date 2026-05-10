@@ -1,4 +1,4 @@
-package map;
+package classResources;
 
 import java.awt.*;
 
@@ -12,6 +12,9 @@ public class ResourcesForMap {
     private Image player2Turret;
 
     private Image map;
+
+    private Image bullet;
+    private Image rocket;
 
 
     public Image getPlayer1Body() {
@@ -52,5 +55,21 @@ public class ResourcesForMap {
 
     public void setMap(Image map) {
         this.map = map;
+    }
+
+    public Image getBullet() {
+        return bullet;
+    }
+
+    public void setBullet(Image bullet) {
+        this.bullet = bullet;
+    }
+
+    public Image getRocket() {
+        return rocket;
+    }
+
+    public void setRocket(Image rocket) {
+        this.rocket = rocket;
     }
 }

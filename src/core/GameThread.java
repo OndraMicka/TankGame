@@ -1,13 +1,18 @@
 package core;
 
+import classResources.Animation;
 import entities.Bullet;
 import entities.Player;
 import map.GameMap;
 import map.MapLayoutPanel;
-import map.ResourcesForMap;
+import classResources.ResourcesForMap;
 import ui.GamePanel;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 
 public class GameThread extends Thread {
     private MapLayoutPanel mapLayoutPanel;
@@ -69,6 +74,7 @@ public class GameThread extends Thread {
         resourcesForMap.setPlayer2Body(new ImageIcon("res/tankBody.png").getImage());
 
 
+
     }
 
     private void handleInput() {
@@ -84,7 +90,6 @@ public class GameThread extends Thread {
         if (player1Input.isRotateTurretRight()) player1.rotateTurretRight();
         if (player1Input.isBullet()) player1.fire(gameMap, entities.TypeOfBullet.BASIC, player1, player2);
         if (player1Input.isRocket()) player1.fire(gameMap, entities.TypeOfBullet.ROCKET, player1, player2);
-        //TODO rocket, bullet
         
         // Player 2
         if (player2Input.isForward()) player2.accelerate();
@@ -95,7 +100,6 @@ public class GameThread extends Thread {
         if (player2Input.isRotateTurretRight()) player2.rotateTurretRight();
         if (player2Input.isBullet()) player2.fire(gameMap, entities.TypeOfBullet.BASIC,player2, player1);
         if (player2Input.isRocket()) player2.fire(gameMap, entities.TypeOfBullet.ROCKET, player2, player1);
-        //TODO rocket, bullet
     }
 
     private void logic() {
