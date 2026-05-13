@@ -20,6 +20,7 @@ public class AllMaps {
         maps = new ArrayList<>();
         maps.add(new GameMap("TestMap", "res/maps/mapTestCollisionGrid.png", "res/maps/mapTestCollisionGrid.png",new Player(10, 10), new Player(6.5, 1.5)));
         maps.add(new GameMap("GeminiMap", "res/maps/map1.png", "res/maps/map1CollisionGrid.png",new Player(31, 16), new Player(5, 5)));
+        maps.add(new GameMap("TestMap2", "res/maps/mapTest2CollisionGrid.png", "res/maps/mapTest2CollisionGrid.png",new Player(31, 16), new Player(5, 7)));
 
     }
 
