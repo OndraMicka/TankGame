@@ -3,6 +3,7 @@ package map;
 import classResources.ResourcesForMap;
 import entities.Bullet;
 import entities.Player;
+import entities.TypeOfBullet;
 
 import javax.swing.*;
 import java.awt.*;
@@ -52,7 +53,7 @@ public class MapLayoutPanel extends JPanel {
         this.currentCamY = (player1.getY() + player2.getY()) / 2.0;
 
         this.setLayout(null);
-        this.setBackground(Color.GREEN);
+        this.setBackground(Color.BLACK);
         this.setVisible(true);
     }
 
@@ -104,7 +105,10 @@ public class MapLayoutPanel extends JPanel {
 
         g2d.setColor(Color.RED);
         for(Bullet bullet:gameMap.getBullets()){
-            g2d.fillRect((int)(bullet.getX()*scaleFactor)-5, (int)(bullet.getY()*scaleFactor)-5, 10, 10);
+            if (bullet.getType().equals(TypeOfBullet.BASIC)) g2d.setColor(new Color(255, 246, 0));
+            else if (bullet.getType().equals(TypeOfBullet.ROCKET)) g2d.setColor(new Color(83, 81, 81));
+            g2d.fillOval((int)(bullet.getX()*scaleFactor)-5, (int)(bullet.getY()*scaleFactor)-5, 10, 10);
+            //TODO add texture to bullets, rockets
         }
 
         repaint();

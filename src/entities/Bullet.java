@@ -135,4 +135,8 @@ public class Bullet {
     public double getY() {
         return y;
     }
+
+    public TypeOfBullet getType() {
+        return type;
+    }
 }

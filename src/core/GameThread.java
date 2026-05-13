@@ -88,7 +88,7 @@ public class GameThread extends Thread {
      */
     private void initialize() {
         resourcesForMap.setMap(gameMap.getImage());
-        resourcesForMap.setPlayer1Body(new ImageIcon("res/tankBody.png").getImage());
+        resourcesForMap.setPlayer1Body(new ImageIcon("res/tankBody-1.png.png").getImage());
         resourcesForMap.setPlayer1Turret(new ImageIcon("res/tankTurret.png").getImage());
 
         resourcesForMap.setPlayer2Turret(new ImageIcon("res/tankTurret.png").getImage());
@@ -112,8 +112,8 @@ public class GameThread extends Thread {
         if (player1Input.isRotateTankRight()) player1.rotateTankRight();
         if (player1Input.isRotateTurretLeft()) player1.rotateTurretLeft();
         if (player1Input.isRotateTurretRight()) player1.rotateTurretRight();
-        if (player1Input.isBullet()) player1.fire(gameMap, entities.TypeOfBullet.BASIC, player1, player2);
-        if (player1Input.isRocket()) player1.fire(gameMap, entities.TypeOfBullet.ROCKET, player1, player2);
+        if (player1Input.isBullet()) player1.fireBullet(gameMap, player1, player2);
+        if (player1Input.isRocket()) player1.fireRocket(gameMap, player1, player2);
         
         // Player 2
         if (player2Input.isForward()) player2.accelerate();
@@ -122,8 +122,8 @@ public class GameThread extends Thread {
         if (player2Input.isRotateTankRight()) player2.rotateTankRight();
         if (player2Input.isRotateTurretLeft()) player2.rotateTurretLeft();
         if (player2Input.isRotateTurretRight()) player2.rotateTurretRight();
-        if (player2Input.isBullet()) player2.fire(gameMap, entities.TypeOfBullet.BASIC,player2, player1);
-        if (player2Input.isRocket()) player2.fire(gameMap, entities.TypeOfBullet.ROCKET, player2, player1);
+        if (player2Input.isBullet()) player2.fireBullet(gameMap,player2, player1);
+        if (player2Input.isRocket()) player2.fireRocket(gameMap, player2, player1);
     }
 
     /**

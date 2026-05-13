@@ -55,7 +55,7 @@ public class GamePanel extends JPanel {
     }
 
     /**
-     * Creates the health panel showing both players' health.
+     * Creates the health panel showing both players' health and bullets,rockets.
      * @return the health panel
      */
     private JPanel createHealthPanel() {
@@ -119,8 +119,8 @@ public class GamePanel extends JPanel {
         super.paint(g);
         Settings.PlayerSettings player1 = ConfigManager.getSettings().getPlayer1();
         Settings.PlayerSettings player2 = ConfigManager.getSettings().getPlayer2();
-        player1Info = player1.getPlayerName() + ": " + gameMap.getPlayer1().getHealth();
-        player2Info = player2.getPlayerName() + ": " + gameMap.getPlayer2().getHealth();
+        player1Info = player1.getPlayerName() + ": " + gameMap.getPlayer1().getHealth()+" bullets: "+gameMap.getPlayer1().getCurrentBullets()+" rockets: "+gameMap.getPlayer1().getCurrentRockets();
+        player2Info = player2.getPlayerName() + ": " + gameMap.getPlayer2().getHealth()+" bullets: "+gameMap.getPlayer2().getCurrentBullets()+" rockets: "+gameMap.getPlayer2().getCurrentRockets();
         player1Health.setText(player1Info);
         player2Health.setText(player2Info);
 
