@@ -146,5 +146,7 @@ public class MapLayoutPanel extends JPanel {
         g2d.drawImage(turretImg, -scaleFactor / 2, -scaleFactor / 2, scaleFactor, scaleFactor, null);
 
         g2d.setTransform(old);
+
+        //TODO: pridat stopu za tank, vzdy se prida jedna a odebere posledni cast = fronta
     }
 }

@@ -265,7 +265,7 @@ public class Player {
             throw new RuntimeException("FDS is not setted, now setted to default 50");
         }
         //rotated degrees in one second.
-        turretRotation -= 80. / fps;
+        turretRotation -= 95. / fps;
     }
 
     /**
@@ -277,7 +277,7 @@ public class Player {
             throw new RuntimeException("FDS is not setted, now setted to default 50");
         }
         //rotated degrees in one second.
-        turretRotation += 80. / fps;
+        turretRotation += 95. / fps;
     }
 
     /**
