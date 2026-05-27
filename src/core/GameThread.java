@@ -88,11 +88,11 @@ public class GameThread extends Thread {
      */
     private void initialize() {
         resourcesForMap.setMap(gameMap.getImage());
-        resourcesForMap.setPlayer1Body(new ImageIcon("res/tankBody-1.png.png").getImage());
-        resourcesForMap.setPlayer1Turret(new ImageIcon("res/tankTurret.png").getImage());
+        resourcesForMap.setPlayer1Body(new ImageIcon("res/bodyPixel.png").getImage());
+        resourcesForMap.setPlayer1Turret(new ImageIcon("res/turretPixel.png").getImage());
 
-        resourcesForMap.setPlayer2Turret(new ImageIcon("res/tankTurret.png").getImage());
-        resourcesForMap.setPlayer2Body(new ImageIcon("res/tankBody.png").getImage());
+        resourcesForMap.setPlayer2Turret(new ImageIcon("res/turretPixel.png").getImage());
+        resourcesForMap.setPlayer2Body(new ImageIcon("res/bodyPixel.png").getImage());
 
 
 
@@ -131,8 +131,8 @@ public class GameThread extends Thread {
      */
     private void logic() {
 
-        player2.move(gameMap);
-        player1.move(gameMap);
+        player2.move(gameMap, player1);
+        player1.move(gameMap, player2);
         for(Bullet bullet:gameMap.getBullets()){
             bullet.turn();
             bullet.move(gameMap);
